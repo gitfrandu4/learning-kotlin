@@ -2,14 +2,14 @@ package poo
 
 import java.lang.IllegalArgumentException
 
-class Rectangle(var width: Double, var height: Double) {
-
-
+class Rectangle (var width: Double, var height: Double){
 
     constructor(rectangle: Rectangle) :
             this(rectangle.width, rectangle.height) {
-                // this.grosor = rectangle.grosor;
-            }
+        // this.grosor = rectangle.grosor;
+    }
+
+    fun getArea() = width * height
 
     init {
         println("Inicializando")
@@ -19,7 +19,17 @@ class Rectangle(var width: Double, var height: Double) {
 
     }
 
-    var grosor = 1
-    fun getArea() = width * height
+    val esCuadrado: Boolean
+        get() = height == width
+
+    var thickness = 1
+        set(value) {
+            if(value <= 0) {
+                throw IllegalArgumentException("El valor del grosor debe ser positivo")
+            } else {
+                // variable de backup que guarda kotlin para guardar el valor de las variables de las clases
+                field = value
+            }
+        }
 
 }

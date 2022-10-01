@@ -1,4 +1,4 @@
-package poo.inheritance
+package poo.shape
 
 abstract class Shape(var x: Int, var y: Int) {
 

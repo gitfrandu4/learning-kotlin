@@ -1,4 +1,6 @@
-package poo.inheritance
+package poo.subject
+
+import poo.person.Person
 
 class Maths(teacher: Person, classRoom: String): Subject(teacher, classRoom) {
     override fun showSchedule() {

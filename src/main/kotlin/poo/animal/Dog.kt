@@ -1,4 +1,4 @@
-package poo.inheritance
+package poo.animal
 
 import poo.enum.AnimalType
 

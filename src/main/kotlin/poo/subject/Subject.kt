@@ -1,4 +1,6 @@
-package poo.inheritance
+package poo.subject
+
+import poo.person.Person
 
 abstract class Subject(val teacher: Person, val aula: String) {
 

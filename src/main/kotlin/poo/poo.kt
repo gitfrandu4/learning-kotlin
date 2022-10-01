@@ -1,17 +1,22 @@
 package poo
 
-import poo.data.Address
 import poo.enum.Color
 import poo.enum.WeekDay
+import poo.person.Student as Student2 // Student with inheritance from Person Class
 
 fun mainPoo() {
-//    val miRectangle = Rectangle()
-//
-//    miRectangle.width = 10.0
-//    miRectangle.height = 5.5
+
+    println("\n========================================================")
+    println("========== Programación Orientada a Objetos ==============")
+    println("========================================================\n")
+
+    val rectangleA = Rectangle(2.0, 4.0)
+
+    rectangleA.width = 10.0
+    rectangleA.height = 5.5
 
     println()
-//    println("El área de mi rectángulo es: ${miRectangle.getArea()}")
+    println("El área de mi rectángulo es: ${rectangleA.getArea()}")
 
     // 58.- En tu función main, crea un objeto de tipo Alumno e inicializa su
     //nombre y apellido, añade algunas notas a su lista y calcula la media.
@@ -41,14 +46,14 @@ fun mainPoo() {
     }
 
     // setters
-    val miRectangle = Rectangle2(5.00, 5.00)
+    val miRectangle = Rectangle(5.00, 5.00)
     println("miRectangle es cuadrado: ${miRectangle.esCuadrado}")
-    val miRectangle2 = Rectangle2(5.02, 5.00)
+    val miRectangle2 = Rectangle(5.02, 5.00)
     println("miRectangle2 es cuadrado: ${miRectangle2.esCuadrado}")
 
     // getters
-//    miRectangle.grosor = -1 // Exception in thread "main" java.lang.IllegalArgumentException: El valor del grosor debe ser positivo
-    miRectangle.grosor = 1
+    miRectangle.thickness = -1 // Exception in thread "main" java.lang.IllegalArgumentException: El valor del grosor debe ser positivo
+    miRectangle.thickness = 1
 
     println("===================================================")
     println("================= DATA CLASS  =====================")

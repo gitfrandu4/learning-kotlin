@@ -1,5 +1,9 @@
 package control
 
+// if expressionç
+// In Kotlin, if is an expression: it returns a value. Therefore, there is no ternary
+// operator (condition ? then : else) because ordinary if works fine in this role.
+
 fun mainControl() {
 
     println("\n========================================================")

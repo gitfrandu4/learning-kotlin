@@ -1,7 +1,12 @@
 import control.mainControl
-import poo.inheritance.mainHerency
+import control.mainControlExercises
+//import poo.mainHerency
+import poo.mainPoo
 
 fun main() {
-    mainHerency()
-    mainControl()
+
+//    mainControl()
+    mainPoo()
+//    mainInheritance()
+    mainControlExercises()
 }

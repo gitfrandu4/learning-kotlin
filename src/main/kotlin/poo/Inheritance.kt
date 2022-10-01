@@ -1,8 +1,11 @@
-package poo.inheritance
+package poo
 
-import poo.Student2
-import poo.data.Address
+import poo.person.Student
+import poo.animal.Animal
+import poo.animal.Cat
+import poo.animal.Dog
 import poo.enum.AnimalType
+import poo.person.Person
 
 fun mainHerency() {
     val animal = Animal(5, AnimalType.VERTEBRADO)
@@ -25,11 +28,12 @@ fun mainHerency() {
     println(person.address)
     person.showPostalCode()
 
-    val student: Student2 = Student2(
+    val student: Student = Student(
         "Pedro",
         "Pérez Reyes",
         "622741666",
-        Address("Calle la esperanza", 2, 35617))
+        Address("Calle la esperanza", 2, 35617)
+    )
 
     student.showPostalCode()
 }

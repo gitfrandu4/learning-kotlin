@@ -1,4 +1,4 @@
-package poo.inheritance
+package poo.person
 
 interface Player {
     fun play() {

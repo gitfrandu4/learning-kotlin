@@ -1,12 +1,11 @@
-package poo
+package poo.person
 
-import poo.data.Address
-import poo.inheritance.Person
+import poo.Address
 import java.lang.IllegalArgumentException
 
 //import poo.enum.Grade
 
-class Student2 (
+class Student (
     firstname: String,
     lastname: String,
     phone: String,

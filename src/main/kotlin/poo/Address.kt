@@ -1,4 +1,4 @@
-package poo.data
+package poo
 
 data class Address(
     val street: String,

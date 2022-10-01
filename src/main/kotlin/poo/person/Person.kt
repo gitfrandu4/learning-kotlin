@@ -1,6 +1,6 @@
-package poo.inheritance
+package poo.person
 
-import poo.data.Address
+import poo.Address
 
 open class Person(
     val firstname: String,

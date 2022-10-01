@@ -1,7 +1,7 @@
-package poo
+package poo.motor
 
-import poo.inheritance.Engine
-import poo.inheritance.Player
+import poo.Engine
+import poo.person.Player
 
 class Car: Engine, Player {
     override fun start() {
