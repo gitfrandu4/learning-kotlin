@@ -10,10 +10,12 @@ fun mainPoo() {
     println("========== Programación Orientada a Objetos ==============")
     println("========================================================\n")
 
-    val rectangleA = Rectangle(2.0, 4.0)
+    val rectangleA = Rectangle(2.0, 4.0, 0, 0)
 
     rectangleA.width = 10.0
     rectangleA.height = 5.5
+
+    rectangleA.trasladar(2, 2)
 
     println()
     println("El área de mi rectángulo es: ${rectangleA.getArea()}")
@@ -46,10 +48,10 @@ fun mainPoo() {
     }
 
     // setters
-    val miRectangle = Rectangle(5.00, 5.00)
-    println("miRectangle es cuadrado: ${miRectangle.esCuadrado}")
-    val miRectangle2 = Rectangle(5.02, 5.00)
-    println("miRectangle2 es cuadrado: ${miRectangle2.esCuadrado}")
+    val miRectangle = Rectangle(5.00, 5.00, 0, 0)
+    println("miRectangle es cuadrado: ${miRectangle.isSquare}")
+    val miRectangle2 = Rectangle(5.02, 5.00, 0, 0)
+    println("miRectangle2 es cuadrado: ${miRectangle2.isSquare}")
 
     // getters
     miRectangle.thickness = -1 // Exception in thread "main" java.lang.IllegalArgumentException: El valor del grosor debe ser positivo

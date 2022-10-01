@@ -4,7 +4,6 @@ import control.mainControlExercises
 import poo.mainPoo
 
 fun main() {
-
 //    mainControl()
     mainPoo()
 //    mainInheritance()

@@ -26,13 +26,13 @@ fun mainControl() {
         }"
     )
 
-
     mainWhen()
-    mainJumps()
     mainFor()
-    mainWhile()
+    mainWhileAndDoWhile()
     mainRangesAndProgressions()
+    mainReturnsAndJumps()
 }
+
 
 //32.- Implementa una función que reciba la edad de una persona y devuelva
 //true si esta es mayor de edad y false en otro caso.
@@ -214,7 +214,7 @@ fun numericGradeToWord(numericGrade: Int): String{
 
 // https://kotlinlang.org/docs/returns.html
 
-fun mainJumps() {
+fun mainReturnsAndJumps() {
 
     println("========================================================\n")
     println("========================================================\n")
@@ -292,6 +292,8 @@ fun mainFor() {
     println("========================================================\n")
     println("========================================================\n")
 
+    // for (item in collection) print(item)
+
     for (i in 1..100) {
 //        println(i)
     }
@@ -366,10 +368,15 @@ fun tengoSueño(number: Int): List<Int> {
 }
 
 
-fun mainWhile() {
+fun mainWhileAndDoWhile() {
 
     println("========================================================\n")
     println("========================================================\n")
+
+    // do {
+    //    val y = retrieveData()
+    //} while (y != null) // y is visible here!
+
 
     var potenciaDeDos = 2
 
