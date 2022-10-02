@@ -1,6 +1,5 @@
-package poo
+package poo.shape
 
-import poo.shape.Shape
 import java.lang.IllegalArgumentException
 
 // Constructor primario de nuestra clase
@@ -34,12 +33,14 @@ class Rectangle (
             if(value <= 0) {
                 throw IllegalArgumentException("El valor del grosor debe ser positivo")
             } else {
-                // variable de backup que guarda kotlin para guardar el valor de las variables de las clases
+                // variable de backup que usa kotlin para guardar el valor de las propiedades de las clases
                 field = value
             }
         }
 
+    // Es una propiedad cuyo valor se calcula cada vez que la llamamos
     override fun getArea() = width * height
+
     override fun getPerimeter(): Double {
         return 2*width + 2*height
     }

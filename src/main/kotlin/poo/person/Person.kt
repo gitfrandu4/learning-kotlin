@@ -9,7 +9,8 @@ open class Person(
     val phone: String
 ) {
 
+
     open fun showPostalCode() {
-        println("El código postal es: ${address.postalCode}")
+        println("El código postal es: ${address}")
     }
 }

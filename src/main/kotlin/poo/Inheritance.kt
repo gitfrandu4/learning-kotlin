@@ -7,7 +7,7 @@ import poo.animal.Dog
 import poo.enum.AnimalType
 import poo.person.Person
 
-fun mainHerency() {
+fun mainInheritance() {
     val animal = Animal(5, AnimalType.VERTEBRADO)
     animal.eat()
 
@@ -31,8 +31,8 @@ fun mainHerency() {
     val student: Student = Student(
         "Pedro",
         "Pérez Reyes",
+        Address("Calle la esperanza", 2, 35617),
         "622741666",
-        Address("Calle la esperanza", 2, 35617)
     )
 
     student.showPostalCode()

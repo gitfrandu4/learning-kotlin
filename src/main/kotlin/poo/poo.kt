@@ -2,6 +2,8 @@ package poo
 
 import poo.enum.Color
 import poo.enum.WeekDay
+import poo.shape.Rectangle
+import java.lang.IllegalArgumentException
 import poo.person.Student as Student2 // Student with inheritance from Person Class
 
 fun mainPoo() {
@@ -17,19 +19,26 @@ fun mainPoo() {
 
     rectangleA.trasladar(2, 2)
 
-    println()
     println("El área de mi rectángulo es: ${rectangleA.getArea()}")
+    println("La posición de mi rectángulo es [${rectangleA.x}, ${rectangleA.y}]")
+    println("¿Mi rectángulo es cuadado? => ${rectangleA.isSquare}")
+
 
     // 58.- En tu función main, crea un objeto de tipo Alumno e inicializa su
     //nombre y apellido, añade algunas notas a su lista y calcula la media.
 
     val myStudent = Student("Dennys", "Bonilla Bonilla")
-
+    println("El estudiante ${myStudent.firstName} ${myStudent.lastName} tiene una nota media de: ${myStudent.averageGrade()}")
     myStudent.insertGrade(7.9)
     myStudent.insertGrade(4.0)
     myStudent.insertGrade(9.01)
-
     println("El estudiante ${myStudent.firstName} ${myStudent.lastName} tiene una nota media de: ${myStudent.averageGrade()}")
+
+    // Utilizamos el constructor secundario al que le pasamos el nombre completo separado por '-'
+    val myOtherStudent = Student2("Juan - López Iturriaga", Address("Calle Rue 13 Percebe", 12345, 35600), "6227741741")
+    println(myOtherStudent.firstname)
+    println(myOtherStudent.lastname)
+
 
     // 59.- En tu función main, crea una lista de alumnos (List<Alumno>) y
     //ordénalos alfabéticamente por apellido.
@@ -54,12 +63,17 @@ fun mainPoo() {
     println("miRectangle2 es cuadrado: ${miRectangle2.isSquare}")
 
     // getters
-    miRectangle.thickness = -1 // Exception in thread "main" java.lang.IllegalArgumentException: El valor del grosor debe ser positivo
+    try {
+        // Exception in thread "main" java.lang.IllegalArgumentException: El valor del grosor debe ser positivo
+        miRectangle.thickness = -1
+    } catch (e: IllegalArgumentException) {
+        println("No se han podido modificar las propiedades de objeto: $e")
+    }
     miRectangle.thickness = 1
 
-    println("===================================================")
+    println("\n===================================================")
     println("================= DATA CLASS  =====================")
-    println("===================================================")
+    println("===================================================\n")
 
     val address1 = Address("Mayor", 28, 92345)
     val address2 = Address("Menor", 24, 23856)
@@ -78,8 +92,6 @@ fun mainPoo() {
     address4.population = "Madrid"
     println(address4.toString())
     println(address4.population.toString())
-
-//    val student: Student2 = Student2("Pedro", "Jota", address = address4)
 
     println("===================================================")
     println("=================== ENUM  =========================")
@@ -101,7 +113,7 @@ fun mainPoo() {
 
     val colorSalmon = Color.SALMON.hex
 
-    val student4: Student2 = Student2("Fran", "Lopez", "232323", address1)
+    val student4: Student2 = Student2("Fran", "Lopez", address1, "232323")
     student4.insertGrade(2.33)
     student4.insertGrade(5.64)
     student4.insertGrade(9.54)
@@ -109,9 +121,12 @@ fun mainPoo() {
 
     println(student4.getGrades())
 
-    println("===================================================")
+    val student5: Student2 = Student2("Joan", "Del Mar", address1, "32333")
+    student5.insertGrade(8.44)
+
+    println("\n===================================================")
     println("=============== CLASES ANIDADAS  ==================")
-    println("===================================================")
+    println("===================================================\n")
 
     val miProcesador = Laptop.Processor(4, 2.5)
     miProcesador.mostrarEspecificaciones()
@@ -126,9 +141,9 @@ fun mainPoo() {
 
     println(myGame.score)
 
-    println("===================================================")
+    println("\n===================================================")
     println("============= FUNCIONES de EXTENSIÓN ==============")
-    println("===================================================")
+    println("===================================================\n")
 
     val name = "Felipe Juan Froilán"
     val firstChar = name.first()
@@ -136,4 +151,10 @@ fun mainPoo() {
     val tercerChar = name.tercero
 
     print("$firstChar $secondChar $tercerChar")
+    println("${student4.firstname} tiene suspensos: ${student4.hasD()}")
+    println("${student4.firstname} tiene sobresalientes: ${student4.hasA()}")
+
+    val listOfStudents: List<Student2> = listOf(student4, student5, myOtherStudent)
+    val bestStudent = listOfStudents.mejor()
+    println("El mejor estudiante es: ${bestStudent.firstname} con la nota media: ${bestStudent.averageGrade()}")
 }
