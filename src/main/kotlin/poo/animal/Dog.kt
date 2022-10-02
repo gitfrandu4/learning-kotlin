@@ -1,6 +1,6 @@
 package poo.animal
 
-import poo.enum.AnimalType
+import poo.enums.AnimalType
 
 class Dog(age: Int): Animal(age, AnimalType.VERTEBRADO) {
 
@@ -8,7 +8,7 @@ class Dog(age: Int): Animal(age, AnimalType.VERTEBRADO) {
         println("inicialización de perro")
     }
 
-    fun bar() {
+    fun bark() {
         println("Guau, guau")
     }
 

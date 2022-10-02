@@ -1,6 +1,6 @@
 package poo.animal
 
-import poo.enum.AnimalType
+import poo.enums.AnimalType
 
 class Cat(age: Int) : Animal(age, AnimalType.VERTEBRADO) {
     init {
@@ -9,5 +9,9 @@ class Cat(age: Int) : Animal(age, AnimalType.VERTEBRADO) {
 
     fun maullar(){
         println("maullar")
+    }
+
+    override fun eat() {
+        println("Estoy comiendo sardinitas, ñam ^^")
     }
 }

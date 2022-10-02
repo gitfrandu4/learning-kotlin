@@ -1,8 +1,15 @@
 package poo.animal
 
-import poo.enum.AnimalType
+import poo.enums.AnimalType
 
-open class Animal(val age: Int, val type: AnimalType) {
+/**
+ * La clase por defecto de la que heredan todas las clases en Kotlin es la clase Any
+ */
+open class Animal(val age: Int, val type: AnimalType): Any() {
+
+    init {
+        println("Inicialización de Animal")
+    }
 
     fun sleep() {
         println("Me voy a dormir")
