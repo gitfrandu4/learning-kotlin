@@ -1,13 +1,13 @@
-# learning-kotlin
+# M1. Introducción a Kotlin
 
-* [0. Introducción POO](aa)
-* [1. Herencia]()
-* [2. Operadores]()
-* [3. Convenciones de código]()
-* [4. Herencia]()
-* [5. Encapsulación]()
-* [6. Null]()
-* [7. Funciones de ámbito]()
+* [0. Introducción POO](#0-introducción-poo)
+* [1. Herencia](#1-herencia-en-kotlin)
+* [2. Operadores](#2-operadores)
+* [3. Convenciones de código](#3-convención-de-nombres)
+* [4. Herencia](#4-el-concepto-de-herencia)
+* [5. Encapsulación](#5-la-encapsulación)
+* [6. El concepto de null](#6-el-concepto-de-null)
+* [7. Funciones de ámbito](#7-funciones-de-ámbito)
 
 ## 0. Introducción POO
 
@@ -478,7 +478,7 @@ la legibilidad de nuestro código que lo hace más conciso y mejora nuestra efic
 y les llama **funciones de ámbito**.
 
 Todas estas funciones tienen como parámetro una función lambda que crea un ámbito en el
-contexto de un objeto en el que podemos escribir nuestro código como si estuvieramos en el
+contexto de un objeto en el que podemos escribir nuestro código como si estuviéramos en el
 ámbito de una función del mismo objeto.
 
 Existen cinco funciones de ámbito en la librería estándar de Kotlin
