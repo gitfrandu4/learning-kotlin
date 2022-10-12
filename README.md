@@ -489,8 +489,7 @@ Existen cinco funciones de ámbito en la librería estándar de Kotlin
 * `apply`
 * `also`
 
-Algunas son muy similares entre sí y en ocasiones puede resultar difícil decantarse
-por una de ellas.
+Algunas son muy similares entre sí y en ocasiones puede resultar difícil decantarse por una de ellas.
 
 ### Objeto del Contexto
 Una de las características que las diferencia unas de otras es la referencia que usamos para
@@ -523,16 +522,19 @@ Tenemos dos opciones:
 
 Otra cosa que diferencia unas funciones de ámbito de otras es el valor devuelto por las mismas.
 
-Hay un grupo de funciones que devuelven el resultado de la lambda (`let`, `with` y `run` ), que podemos usar cuando
-queremos obtener un objeto de una clase diferente que resulte de las operaciones con el objeto del contexto. Y hay otras
-que devuelven el objeto (`apply` y `also`) en sí, y son también muy útiles para encadenar diferentes llamadas a funciones
+Hay un grupo de funciones que <u>devuelven el resultado de la lambda</u> (`let`, `with` y `run` ), que podemos usar cuando
+queremos obtener un objeto de una clase diferente que resulte de las operaciones con el objeto del contexto. 
+
+Y hay otras que devuelven el objeto (`apply` y `also`) en sí, y son también muy útiles para encadenar diferentes llamadas a funciones
 del objeto y para añadir efectos colaterales.
 
 <img src="./docs/images/valor-devuelto.png" width="600px"/>
 
-2:07:00
-
 ### Let
+
+La función `let` aplicada a un objeto nos devuelve el resultado de la lambda
+
+The context object is available as an argument (it). The return value is the lambda result.
 
 ```kotlin
 val str: String? = "Hello"
@@ -540,14 +542,52 @@ val str: String? = "Hello"
 val length = str?.let {
     println(it) // Solo se ejecuta si str no es null
 }
+
+val myNumber = 5
+val myNumber2 = myNumber.let { it * 2 }
+// Dentro de let podemos referinos a myNumber con it
+// Devuelve el resultado del bloque
+
+val names = listOf<String>("Ana", "Juan", "Luis", "Sara")
+names.filter { it.contains('a') }
+  .sorted()
+  .let { 
+      // aquí tendremos el resultado de encadenar las funciones mediante it
+      println( it ) // [Ana, Juan, Sara]
+  }
+```
+La función ´let´ suele usarse a menudo para ejecutar código solo en caso de que un valor sea ´null´
+
+Por ejemplo:
+
+```kotlin
+fun saludar(names: List<String?>) {
+    for (name in names) {
+//        if (nombre != null ) {
+//            println("Hola, $name")
+//        }
+
+      name?.let { name -> println("Hola, $name") }
+      // renombramos $it para que sea más legible el código
+    }
+}
+```
+
+107.- En el primer escenario, con una única variable y también haciendo
+uso de let, muestra por pantalla el mensaje “¡Es null!” en el caso de que la
+variable lo sea.
+
+```kotlin
+val nombre: String? = null
+nombre?.let { } ?: run { println("¡Es Null!") }
 ```
 
 ### With
 
 Es una función de ámbito que tiene dos parámetros:
 
-* Un objeto, que será el receptor
-* Una expresión lambda
+* Un objeto, que será el receptor (`usuario`)
+* Una expresión lambda (`{ ... }`)
 
 ```kotlin
 val numbers = mutableListOf("uno", "dos", "tres")
@@ -565,13 +605,15 @@ usuario.changePassword("admin")
 // En su lugar:
 
 with(user) {
-    moverA("Admin")
+    moverA("Admin") // son funciones de la clase de usuario!
     changePassword("admin")
 }
 
 // De esta forma queda más limpio
 // La función with nos permite tener un código más ordenado y no tener que estar 
 // repitiendo el nombre del objeto.
+// También permite a alguien que lee nuestro código entender que ese grupo de funciones
+// está relacionada
 ```
 
 ### Run
