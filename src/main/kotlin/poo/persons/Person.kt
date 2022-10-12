@@ -30,7 +30,14 @@ open class Person(
     // 87.- Crear una función en Persona que muestre por pantalla la dirección de
     //      esa persona
     open fun showAddress() {
-        println(address.toString())
+//        println(address.toString())
+
+        // 108.- Con la ayuda de with, crea o mejora el método que muestra por
+        //pantalla el objeto Direccion de una Persona
+
+        with(address) {
+            println("Calle: ${this?.street} ${this?.number}, ${this?.postalCode} ")
+        }
     }
 
     val contactor: Contactor = AndroidContactor()

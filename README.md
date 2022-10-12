@@ -589,10 +589,13 @@ Es una función de ámbito que tiene dos parámetros:
 * Un objeto, que será el receptor (`usuario`)
 * Una expresión lambda (`{ ... }`)
 
+El resultado de la función `with` es el resultado de la función lambda.
+
 ```kotlin
 val numbers = mutableListOf("uno", "dos", "tres")
 
 with(numbers) {
+  // Dentro de la lambda ahora nos referimos al objeto mediante $this
     println("'with' es llamado con el argumento $this")
     println("Contiene $size elementos")
 }
@@ -615,6 +618,32 @@ with(user) {
 // También permite a alguien que lee nuestro código entender que ese grupo de funciones
 // está relacionada
 ```
+
+La función ´with´ está recomendada cuando se van a usar las funciones miembro de un objeto
+cuando no se va a utilizar el resultado de la lambda. Por lo tanto, es muy cómodo para crear un 
+ámbito donde trabajaremos con el objeto
+
+Otro ejemplo: 
+
+```kotlin
+var usuario = Usuario("Alex", 12345, mail@mail.com)
+
+usuario.nombre = "Alex123"
+usuario.id = "123123"
+
+// Ahora:
+
+with(usuario ) {
+  nombre = "Alex123" 
+  id = 12122
+  email = "otro@mail.com"
+} 
+// más legible
+// normalmente no se quiere obtener un resultado, solo operar sobre el objeto
+// val result = with (usuario) { ... } <== no se hace normalmente
+```
+
+28/9/22 3:00:00
 
 ### Run
 
