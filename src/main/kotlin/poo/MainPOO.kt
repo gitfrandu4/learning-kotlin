@@ -197,7 +197,9 @@ fun mainPoo() {
     println(WeekDay.MONDAY < WeekDay.SUNDAY)
 
     val colorSalmon = Color.SALMON.hex
-    print(colorSalmon)
+    println(colorSalmon)
+
+    println(myOtherStudent.averageGrade())
 
     val student4: Student2 = Student2("Fran", "Lopez", myAddressA, "232323")
     student4.insertGrade(2.33)
@@ -222,7 +224,7 @@ fun mainPoo() {
     val secondChar = name.mySecondChar() // nuestra función extendida de la clase string
     val tercerChar = name.tercero
 
-    print("$firstChar $secondChar $tercerChar")
+    println("$firstChar $secondChar $tercerChar")
     println("${student4.firstname} tiene suspensos: ${student4.hasD()}")
     println("${student4.firstname} tiene sobresalientes: ${student4.hasA()}")
 

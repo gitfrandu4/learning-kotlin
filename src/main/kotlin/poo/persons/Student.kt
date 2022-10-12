@@ -51,7 +51,7 @@ class Student (
         }
 
     fun averageGrade(): Double {
-        return grades?.average() ?: 0.0
+        return if(grades?.isEmpty() == false) grades?.average() ?: 0.0 else 0.00
     }
 
     fun insertGrade(grade: Double){

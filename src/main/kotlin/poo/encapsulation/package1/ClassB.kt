@@ -31,6 +31,4 @@ fun funcionDePrimerNivel(){
 
     // aquí tampoco podríamos acceder a las propiedades protected
     // myObjectB.hello() // Cannot access 'hello': it is protected in 'ClassB'
-
-
 }

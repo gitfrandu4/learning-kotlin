@@ -20,8 +20,8 @@ import poo.interfaces.Contactor
 open class Person(
     val firstname: String,
     val lastname: String,
-    private val address: Address,
-    val phone: String
+    private val address: Address?,
+    val phone: String?
 ) {
     open fun showPostalCode() {
         println("El código postal es: ${address}")
@@ -36,8 +36,9 @@ open class Person(
     val contactor: Contactor = AndroidContactor()
 
     fun call() {
-        contactor.call(phone)
+        if(phone != null) contactor.call(phone)
     }
+
     fun writeLetter(text: String) {
         contactor.writeLetter(text)
     }
