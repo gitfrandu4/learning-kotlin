@@ -1,13 +1,19 @@
 # M1. Introducción a Kotlin
 
 * [0. Introducción POO](#0-introducción-poo)
-* [1. Herencia](#1-herencia-en-kotlin)
+* [1. Herencia en Kotlin](#1-herencia-en-kotlin)
 * [2. Operadores](#2-operadores)
 * [3. Convenciones de código](#3-convención-de-nombres)
 * [4. Herencia](#4-el-concepto-de-herencia)
 * [5. Encapsulación](#5-la-encapsulación)
 * [6. El concepto de null](#6-el-concepto-de-null)
 * [7. Funciones de ámbito](#7-funciones-de-ámbito)
+  * [Objeto del contexto](#objeto-del-contexto)
+  * [`let`](#let-1)
+  * [`with`](#with-1)
+  * [`run`](#run-1)
+  * [`apply`](#apply-1)
+  * [`also`](#also-1)
 
 ## 0. Introducción POO
 
@@ -724,13 +730,13 @@ val parONull = numero.takeIf { it % 2 == 0 }
 val imparONull = numero.takeUnless { it % 2 == 0 }
 ```
 
+## Práctica Kotlin
 
+29/9/2022
 
+## Corrutinas
 
-
-
-
-
+3/10/2022
 
 
 
