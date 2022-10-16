@@ -1,6 +1,6 @@
 package poo.scope
 
-class MiClase {
+class Let {
 
     var miPropiedad: String? = null
 
@@ -48,15 +48,16 @@ class MiClase {
 }
 
 fun main() {
-    var clase: MiClase = MiClase()
+    var clase: Let = Let()
 
-    clase.neverNull()
+    clase.run {
+        neverNull()
 
-    clase.notNull = "Ana"
-    clase.neitherNull = "Maria"
+        notNull = "Ana"
+        neitherNull = "Maria"
 
-    clase.neverNull()
-
+        neverNull()
+    }
 
     // 107.- En el primer escenario, con una única variable y también haciendo
     //uso de let, muestra por pantalla el mensaje “¡Es null!” en el caso de que la

@@ -534,7 +534,7 @@ del objeto y para añadir efectos colaterales.
 
 La función `let` aplicada a un objeto nos devuelve el resultado de la lambda
 
-The context object is available as an argument (it). The return value is the lambda result.
+The context object is available as an argument (`it`). The return value is the lambda result.
 
 ```kotlin
 val str: String? = "Hello"
@@ -556,7 +556,8 @@ names.filter { it.contains('a') }
       println( it ) // [Ana, Juan, Sara]
   }
 ```
-La función ´let´ suele usarse a menudo para ejecutar código solo en caso de que un valor sea ´null´
+
+La función `let` suele usarse a menudo para ejecutar código solo en caso de que un valor sea `null`
 
 Por ejemplo:
 
@@ -619,7 +620,7 @@ with(user) {
 // está relacionada
 ```
 
-La función ´with´ está recomendada cuando se van a usar las funciones miembro de un objeto
+La función `with` está recomendada cuando se van a usar las funciones miembro de un objeto
 cuando no se va a utilizar el resultado de la lambda. Por lo tanto, es muy cómodo para crear un 
 ámbito donde trabajaremos con el objeto
 
@@ -633,7 +634,7 @@ usuario.id = "123123"
 
 // Ahora:
 
-with(usuario ) {
+with(usuario) {
   nombre = "Alex123" 
   id = 12122
   email = "otro@mail.com"
@@ -643,9 +644,13 @@ with(usuario ) {
 // val result = with (usuario) { ... } <== no se hace normalmente
 ```
 
-28/9/22 3:00:00
-
 ### Run
+
+La función de ámbito `run` se aplica a un objeto y tiene como parámetro de entrada una expresión
+lambda. El resultado de la función `run` será el resultado de la lambda. 
+
+La función `run` suele usarse cuando necesita implementarse una configuración. Si, además de
+realizar una acción, necesitamos obtener un resultado de esa acción
 
 ```kotlin
 val servicio = MultiportService("https://example.kotlinlang.org", 80)
@@ -655,7 +660,23 @@ val resultado = servicio.run {
 }
 ```
 
+```kotlin
+val conexion = URL("https://es.wikipedia.org").openConnection()
+val datos = conexion.run {
+    connectTimeout = 2000
+    getInputStram().bufferedReader().readText()
+}
+```
+
 ### Apply
+
+`apply` es una función de ámbito que se aplica a un objeto y a la que se le pasa una función lambda. 
+El resultado de la función `apply` es el objeto en sí. Ahora, en lugar de ser el resultado la última
+línea de la función lambda, el resultado es el objeto. 
+
+Un uso muy común de `apply` es la inicialización o la configuración de objetos.
+
+Más adelante utilizaremos esta función en las vistas de android (fragments).
 
 ```kotlin
 val adam = Persona("Adam").apply {
@@ -668,6 +689,14 @@ println(adam)
 
 ### Also
 
+La función de ámbito `also` se aplica a un objeto y lo que devuelve es el mismo objeto
+después de ejecutar la función lambda. 
+
+La función `also` funciona muy bien cuando queremos encadenar varias acciones que tienen que 
+ver unas con otras, especialmente cuando tienen efectos secundarios relacionados. 
+
+Esta función se aplica muchas veces en conjunto con `apply`
+
 ```kotlin
 val numeros = mutableListOf("uno", "dos", "tres")
 
@@ -675,6 +704,17 @@ numeros
     .also { println("La lista de elementos hasta ahora: $it") }
     .add("cuatro")
 ```
+
+Otro ejemplo: 
+
+```kotlin
+val usuarios = mutableListOf<Person>()
+val newUser = Person("Ana Belén", "López Iturriaga", Address("Calle Lomo Verdejo", 2, 350018), "788455777")
+  .also { usuarios.add(it) }
+  .also { println("Se ha añadido el usuario ${it.firstname}") }
+```
+
+Lo que distingue `also` y `apply` de las demás funciones es que estas lo que nos devuelven es el objeto. 
 
 ### Take-if y take-unless
 
